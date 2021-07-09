@@ -2,8 +2,8 @@ package com.shabsudemy.viewpagerrecyclerviewpoc;
 
 import android.content.Context;
 import android.util.Log;
-import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -25,14 +25,15 @@ public class ViewPagerImageAdapter extends RecyclerView.Adapter<ViewPagerImageAd
         this.imageList = imageList;
     }
 
+
+
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.custom_imageview_layout, parent, false);
-        view.setOnDragListener(new View.OnDragListener() {
-            @Override
-            public boolean onDrag(View v, DragEvent event) {
-                Log.d("TAG",String.valueOf(event.getAction()));
+        view.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                v.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
             }
         });
