@@ -5,7 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shabsudemy.viewpagerrecyclerviewpoc.models.DataModel;
-import com.shabsudemy.viewpagerrecyclerviewpoc.models.SliderAdapter;
+import com.shabsudemy.viewpagerrecyclerviewpoc.adapter.SliderAdapter;
 import com.smarteist.autoimageslider.SliderView;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 

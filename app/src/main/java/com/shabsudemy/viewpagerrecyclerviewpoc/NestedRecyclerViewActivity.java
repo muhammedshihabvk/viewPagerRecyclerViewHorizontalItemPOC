@@ -8,6 +8,7 @@ import androidx.viewpager2.widget.ViewPager2;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.shabsudemy.viewpagerrecyclerviewpoc.adapter.ImageViewAdapter;
 import com.shabsudemy.viewpagerrecyclerviewpoc.models.DataModel;
 
 import java.util.ArrayList;
@@ -18,9 +19,8 @@ public class NestedRecyclerViewActivity extends AppCompatActivity implements Rec
     RecyclerView recyclerView;
     List<DataModel> dataModelList = new ArrayList<DataModel>();
     RecyclerViewAdapter recyclerViewAdapter;
-
     ViewPager2 viewPager2;
-    ViewPagerImageAdapter viewPagerImageAdapter;
+    ImageViewAdapter imageViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,9 @@ public class NestedRecyclerViewActivity extends AppCompatActivity implements Rec
         recyclerView = findViewById(R.id.recyclerview);
         viewPager2 = findViewById(R.id.viewPageTry);
 
-        viewPagerImageAdapter = new ViewPagerImageAdapter(this, dataModelList.get(0).getProductImage());
+        imageViewAdapter = new ImageViewAdapter(this, dataModelList.get(0).getProductImage());
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
-        viewPager2.setAdapter(viewPagerImageAdapter);
+        viewPager2.setAdapter(imageViewAdapter);
 
         recyclerViewAdapter = new RecyclerViewAdapter(this, dataModelList, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -41,7 +41,6 @@ public class NestedRecyclerViewActivity extends AppCompatActivity implements Rec
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setNestedScrollingEnabled(true);
     }
-
 
     void generateData() {
         List<String> productImage = new ArrayList<>();
@@ -53,12 +52,12 @@ public class NestedRecyclerViewActivity extends AppCompatActivity implements Rec
         String productId = "product00";
         String productName = "Product Name";
         String productCategory = "product";
-        double sellingPrice = 200.50;
-        double actualMRP = 400.75;
+        double sellingPrice = 258.50;
+        double actualMRP = 436.75;
         boolean saleFlag = true;
 
-        for (int i = 0; i < 10; i++) {
-            dataModelList.add(new DataModel(productId + String.valueOf(i), productName + String.valueOf(i), productCategory + String.valueOf(i), sellingPrice, actualMRP, saleFlag, productImage));
+        for (int i = 1; i < 15; i++) {
+            dataModelList.add(new DataModel(productId + String.valueOf(i), productName + String.valueOf(i), productCategory + String.valueOf(i), sellingPrice*i, actualMRP*i, saleFlag, productImage));
         }
     }
 

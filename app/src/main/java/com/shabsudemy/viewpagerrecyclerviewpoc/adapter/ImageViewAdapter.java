@@ -1,4 +1,4 @@
-package com.shabsudemy.viewpagerrecyclerviewpoc;
+package com.shabsudemy.viewpagerrecyclerviewpoc.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -12,20 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.shabsudemy.viewpagerrecyclerviewpoc.R;
 
 import java.util.List;
 
-public class ViewPagerImageAdapter extends RecyclerView.Adapter<ViewPagerImageAdapter.CustomViewHolder> {
+public class ImageViewAdapter extends RecyclerView.Adapter<ImageViewAdapter.CustomViewHolder> {
 
     List<String> imageList;
     private Context context;
 
-    public ViewPagerImageAdapter(Context context, List<String> imageList) {
+    public ImageViewAdapter(Context context, List<String> imageList) {
         this.context = context;
         this.imageList = imageList;
     }
-
-
 
     @NonNull
     @Override
@@ -41,7 +40,7 @@ public class ViewPagerImageAdapter extends RecyclerView.Adapter<ViewPagerImageAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewPagerImageAdapter.CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ImageViewAdapter.CustomViewHolder holder, int position) {
         Glide.with(context).load(imageList.get(position)).into(holder.imageView);
         Log.d("TAG", String.valueOf(imageList.get(position)));
     }

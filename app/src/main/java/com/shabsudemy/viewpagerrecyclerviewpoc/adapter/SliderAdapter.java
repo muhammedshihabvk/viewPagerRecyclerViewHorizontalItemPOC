@@ -1,4 +1,4 @@
-package com.shabsudemy.viewpagerrecyclerviewpoc.models;
+package com.shabsudemy.viewpagerrecyclerviewpoc.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,9 +31,7 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
     @Override
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, int position) {
-        Glide.with(context)
-                .load(imageList.get(position))
-                .into(viewHolder.imageView);
+        Glide.with(context).load(imageList.get(position)).into(viewHolder.imageView);
     }
 
     @Override
@@ -41,9 +39,9 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
         return imageList.size();
     }
 
-
-    public class SliderAdapterViewHolder extends SliderViewAdapter.ViewHolder  {
+    public class SliderAdapterViewHolder extends SliderViewAdapter.ViewHolder {
         ImageView imageView;
+
         public SliderAdapterViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageViewForViewPager);
